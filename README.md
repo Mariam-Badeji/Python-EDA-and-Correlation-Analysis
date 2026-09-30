@@ -90,16 +90,94 @@ plt.xlabel('Total Units Sold')
 plt.ylabel('Products')
 plt.show()
 ```
+Profit by products
+```
+# product with the highest number of profit
 
+profit_by_product = df.groupby('Product')['Profit'].sum()
 
+print(profit_by_product)
+profit_by_product = profit_by_product.sort_values(ascending = True)
+profit_by_product.plot(kind='barh')
 
+plt.title('Profit by Product')
+plt.xlabel('Total profit')
+plt.ylabel('Products')
 
+plt.show()
+```
+Sales by Month
+```
+# which month has the most sales
+df['short_month'] = df['Month Name'].str[:3] #to shorten the months
+months_chro = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] # defining the chronological order of the months
 
+df['short_month'] = pd.Categorical(df['short_month'], categories=months_chro, ordered=True)
+sales_by_month = df.groupby('short_month')[' Sales'].sum()
 
+print(sales_by_month)
 
+sales_by_month = sales_by_month.sort_values(ascending =True)
 
+sales_by_month.plot(kind='line')
 
+#df['short_month'] = df['Month Name'].dt.strftime('%b')
 
+plt.title('Profit by Product')
+plt.xlabel('Month')
+plt.ylabel('Total Profit')
+
+plt.show()
+```
+Units sold by Discount Band
+```
+# units sold by discount band
+
+units_sold_by_discount_band = df.groupby('Discount Band')['Units Sold'].sum()
+
+print(units_sold_by_discount_band)
+units_sold_by_discount_band.plot(kind = 'pie')
+
+plt.title('Units sold by Discount Band')
+plt.xlabel('')
+plt.ylabel('')
+
+plt.show()
+
+```
+
+### Correlation Analysis
+COGS vs Profit
+```
+# Does a higher cogs mean a lower profit
+
+# Building a scatter plot with COGS vs profit
+
+%matplotlib inline
+matplotlib.rcParams['figure.figsize'] = (8,6)
+
+plt.scatter(x=df['COGS'], y=df['Profit'])
+plt.title('COGS vs Profit')
+plt.xlabel('')
+plt.ylabel('')
+
+plt.show()
+
+# there seems to be a positive relationship between them. So, the higher the COGS the higher the profit
+```
+```
+# to determine if they are truely correlated, we will add a regression plot. Ploting COGS vs Profit using seaborn
+
+sns.regplot(x='COGS', y='Profit', data=df, scatter_kws={"color": "red"}, line_kws={"color":"blue"})
+
+# the line is going up so a positive relationship (correlation) between the two but we dont know by how much (by what percentage)
+```
+Determining the actual correlation
+```
+# determining what the actual correlation is. A positive correlation by how much
+
+df.corr(method='pearson')
+```
 
 
 
