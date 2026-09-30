@@ -18,3 +18,5 @@ from matplotlib.pyplot import figure
 %matplotlib inline
 matplotlib.rcParams['figure.figsize'] = (6,2)
 ```
+# to import the excel file
+```df = pd.read_excel(r'/Users/dc/Downloads/Sample datasets copy1.xlsx') ```
