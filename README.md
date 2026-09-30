@@ -29,7 +29,7 @@ Dropping columns that are not necessary for our analysis
 df = df.drop(columns =['Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18'])
 df.info() # to check what your data is made up of
 ```
-
+Checking for nulls and missing values
 ```
 # count the amount of nulls in each column and return the column n their numbers of missing values
 for values in df.columns:
@@ -46,4 +46,32 @@ df['Month Name'] = df['Month Name'].fillna(0)
 
 df.isnull().sum()  # checking to see if we still have any null value and there are none     
 ```
+Splitting up the date up to show individual columns for the month, day and year
+```
+# first drop the error dates splits
+
+#df = df.drop(columns =['Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18'])
+
+#convert the date column to a date time and split it up
+df['Date_Time'] = pd.to_datetime(df['Date'])
+
+df
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
