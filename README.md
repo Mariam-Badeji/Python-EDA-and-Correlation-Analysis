@@ -36,6 +36,14 @@ for values in df.columns:
     count = df[values].isnull().sum() # for every value in the df count the null value and the sum them to get the total number of null values
     print(values, count)
 ```
-    
+Treating missing and null values
+```
+# so we have missing values in discount band, sales, and month number, how do we fill them without droping it
+# df[values]
+df['Discount Band'] = df['Discount Band'].fillna(0)
+df[' Sales'] = df[' Sales'].fillna(0)
+df['Month Name'] = df['Month Name'].fillna(0)
 
+df.isnull().sum()  # checking to see if we still have any null value and there are none     
+```
 
