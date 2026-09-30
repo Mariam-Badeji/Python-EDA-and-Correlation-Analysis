@@ -172,7 +172,7 @@ sns.regplot(x='COGS', y='Profit', data=df, scatter_kws={"color": "red"}, line_kw
 
 # the line is going up so a positive relationship (correlation) between the two but we dont know by how much (by what percentage)
 ```
-Determining the actual correlation
+Determining the actual correlation - correlation by how much
 ```
 # determining what the actual correlation is. A positive correlation by how much
 
