@@ -20,4 +20,7 @@ matplotlib.rcParams['figure.figsize'] = (6,2)
 ```
 importing the excel file into Jupyter Notebook
 
-```df = pd.read_excel(r'/Users/dc/Downloads/Sample datasets copy1.xlsx') ```
+```df = pd.read_excel(r'/Users/dc/Downloads/Sample datasets copy1.xlsx') 
+df.head() # to check the first five rows of the dataset after importing it ```
+
+
