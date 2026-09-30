@@ -18,9 +18,20 @@ from matplotlib.pyplot import figure
 %matplotlib inline
 matplotlib.rcParams['figure.figsize'] = (6,2)
 ```
-importing the excel file into Jupyter Notebook
+Importing the excel file into Jupyter Notebook
 
 ```df = pd.read_excel(r'/Users/dc/Downloads/Sample datasets copy1.xlsx') 
-df.head() # to check the first five rows of the dataset after importing it ```
+df.head() # to check the first five rows of the dataset after importing it
+df.shape # this tells you the number of rows and columns in our data. So we have 700 rows and 16 columns
+```
+Dropping columns that are not necessary for our analysis
+``` df = df.drop(columns =['Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18'])
+df.info() # to check what your data is made up of ```
+
+```# count the amount of nulls in each column and return the column n their numbers of missing values
+for values in df.columns:
+    count = df[values].isnull().sum() # for every value in the df count the null value and the sum them to get the total number of null values
+    print(values, count)```
+    
 
 
