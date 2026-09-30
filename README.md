@@ -1,4 +1,4 @@
 # Python-EDA-and-Correlation-Analysis
 ## Overview
-This is an hypothetical company that deals in the sales of goods such as Amarilla, Carretera, Montana, Paseo, Velo and VTT. In this analysis, I cleaned the data in python and the went on to conduct exploratory data analysis. After which I carried out some correlation analysis on the company.
+This project analyzes a hypothetical B2B and B2G company that sells various goods—including Amarilla, Carretera, Montana, Paseo, Velo, and VTT—to government agencies, small businesses, and enterprise clients. Using Python, I cleaned and preprocessed the raw dataset before conducting an exploratory data analysis (EDA) and correlation analysis to uncover key business insights and relationships.
 
