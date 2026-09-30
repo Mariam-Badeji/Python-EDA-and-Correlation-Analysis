@@ -46,7 +46,7 @@ df['Month Name'] = df['Month Name'].fillna(0)
 
 df.isnull().sum()  # checking to see if we still have any null value and there are none     
 ```
-Splitting up the date up to show individual columns for the month, day and year
+First converting the date column to 'datetime' then splitting it up to show individual columns for the month, day and year
 ```
 # first drop the error dates splits
 
@@ -55,11 +55,41 @@ Splitting up the date up to show individual columns for the month, day and year
 #convert the date column to a date time and split it up
 df['Date_Time'] = pd.to_datetime(df['Date'])
 
+df['Day'] = df['Date_Time'].dt.day # extracts the day into the column day
+df['Month_Text'] = df['Date_Time'].dt.strftime('%b') # extracts the month in short form
+df['Month_Num'] = df['Date_Time'].dt.month # extracts the month as 1, 2, 3
+df['Years'] = df['Date_Time'].dt.year # extracts the year from the date
 df
 ```
+### Exploratory Data Analysis (EDA)
+Sales by revenue
+```
+# segment with the most number of sales
 
+segment_revenue = df.groupby('Segment')[' Sales'].sum()
 
+print(segment_revenue)
+segment_revenue = segment_revenue.sort_values(ascending=True)
+segment_revenue.plot(kind='barh')
 
+plt.title('Revenue by Segment')
+plt.xlabel('Segment')
+plt.ylabel('Total Revenue')
+plt.show()
+```
+Units sold by Products
+```
+units_sold_by_products = df.groupby('Product')['Units Sold'].sum()
+
+print(units_sold_by_products)
+units_sold_by_products = units_sold_by_products.sort_values(ascending=True)
+units_sold_by_products.plot(kind='barh')
+
+plt.title('Units Sold by Products')
+plt.xlabel('Total Units Sold')
+plt.ylabel('Products')
+plt.show()
+```
 
 
 
