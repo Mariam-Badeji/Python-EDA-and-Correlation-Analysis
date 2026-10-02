@@ -179,6 +179,7 @@ Determining the actual correlation - correlation by how much
 df.corr(method='pearson')
 ```
 
+<img width="1280" height="720" alt="Python project" src="https://github.com/user-attachments/assets/66bab117-cf32-42f6-bb06-75995fc86376" />
 
 
 
